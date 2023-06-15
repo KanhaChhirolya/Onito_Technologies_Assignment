@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Set up employee routes
-// app.use('/employees', employeeRouter);
+app.use('/', MovieRouter);
 
 // connect the server
 const port = 3000;
