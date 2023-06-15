@@ -21,14 +21,17 @@ connection.connect((err) => {
     titleType VARCHAR(255),
     primaryTitle VARCHAR(255),
     runtimeMinutes INT,
-    genres VARCHAR(255)
+    genres VARCHAR(255),
+    FOREIGN KEY (tconst) REFERENCES ratings (tconst)
   )`;
-
+  
   const createRatingsTable = `CREATE TABLE IF NOT EXISTS ratings (
     tconst VARCHAR(9) PRIMARY KEY,
     averageRating DECIMAL(3,1),
-    numVotes INT
+    numVotes INT,
+    FOREIGN KEY (tconst) REFERENCES movies (tconst)
   )`;
+  
 
   connection.query(createMoviesTable, (err) => {
     if (err) {
